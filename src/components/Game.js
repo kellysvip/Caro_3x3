@@ -73,7 +73,7 @@ function Game() {
     setStepNumber(currentHistory.length);
     setXIsNext((prevState) => !prevState);
   };
-
+  
   //Restart game
   const handlRestart = () => {
     setStepNumber(0);
@@ -83,6 +83,7 @@ function Game() {
       },
     ]);
     setXIsNext(true);
+    setSquares(Array(9).fill(null))
   };
 
   const jumpTo = (step) => {
@@ -99,7 +100,7 @@ function Game() {
           <Board
             squares={history[stepNumber].squares}
             handleClick={handleClick}
-            
+
           />
         </div>
         <History className="game-history" history={history} jumpTo={jumpTo} />
